@@ -1,0 +1,174 @@
+#format = """
+#[╭─user───❯](bold blue) $username
+#[┣─system─❯](bold yellow) $hostname
+#[┣─project❯](bold red) $directory$rust$git_branch$git_status$package$golang$terraform$docker_context$python$docker_context$nodejs
+#[╰─cmd────❯](bold green)
+#"""
+#continuation_prompt = "[+](blue bold)"
+continuation_prompt = '▶▶ '
+add_newline = true
+
+[username]
+style_user = "green bold"
+style_root = "red bold"
+format = "[╭─](cyan)[$user]($style) "
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = 'on [$hostname](bold yellow) '
+trim_at = "."
+disabled = false
+
+# Replace the "❯" symbol in the prompt with "➜" "﬌""➜""➙" "➡" "➤" "˃" "⟿" "⟶" "❯"
+[character] # The name of the module we are configuring is "character"
+success_symbol = "[╰─](cyan)[➤](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[╰─](cyan)[✘](red)"
+
+#  
+# configure directory
+[directory]
+read_only = " "
+format = 'in [$path]($style)[$read_only]($read_only_style) '
+truncation_length = 10
+truncate_to_repo = false # truncates directory to root folder if in github repo
+style = "bold italic blue"
+
+# [cmd_duration]
+# disabled = true
+# min_time = 4
+# show_milliseconds = false
+# #disabled = false
+# style = "bold italic red"
+[sudo]
+symbol = "🧙 "
+style = "bold blue"
+format = "[as $symbol]($style)"
+
+[localip]
+ssh_only = false
+format = '@ [$localipv4](bold red) '
+disabled = false
+
+[aws]
+disabled = true
+
+[c]
+disabled = false
+format = 'via [$name $version]($style)'
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+format = "via [$symbol$context]($style) "
+style = "blue bold"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+disabled = false
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+# ~/.config/starship.toml
+[git_commit]
+commit_hash_length = 7
+tag_symbol = '🔖 '
+
+# ~/.config/starship.toml
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
+
+# ~/.config/starship.toml
+[git_status]
+conflicted = '[🏳](red)'
+ahead = '🏎💨${count}(bold green)'
+behind = '⇣${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+up_to_date = '[✓](bold green)'
+untracked = '🤷'
+stashed = '📦'
+modified = '!'
+staged = '[++\($count\)](bold green)'
+renamed = '👅'
+deleted = '🗑'
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+format = 'on [🌱 $branch](bold purple)'
+truncation_length = 4
+truncation_symbol = ''
+
+[java]
+symbol = " "
+style = "yellow bold"
+version_format = "v${major}"
+format = 'via [${symbol}java (${version} )(\($version_format\) )]($style)'
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+format = "via [ Node.js $version](bold green) "
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+
+[package]
+symbol = " "
+format = 'via [🎁 $version](208 bold) '
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
+style = "bold yellow"
+pyenv_prefix = "venv "
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+detect_extensions = ["py"]
+version_format = "v${raw}"
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
+# ~/.config/starship.toml
