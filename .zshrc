@@ -1,3 +1,5 @@
+eval "$(starship init zsh)"
+eval "$(atuin init zsh)"
 tput setaf 5
 tput bold
 figlet -t -k -f shadow  "Linux"
@@ -16,7 +18,3 @@ alias la='eza -a --group-directories-first --git --time-style=relative --no-file
 alias date='date "+%d-%b-%Y %I:%M %p"'
 alias cat='bat --theme Dracula --italic-text always --style "header-filename,header-filesize,grid" '                   # run cat -> bat with arguments
 alias vim='nvim '                                  # set nvim to vim
-
-eval "$(atuin init bash)"
-eval "$(starship init bash)"
-eval -- "$(/data/data/com.termux/files/usr/bin/starship init bash --print-full-init)"
